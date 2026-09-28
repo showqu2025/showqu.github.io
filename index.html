@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SHOWQU VJ/3D Creator</title>
+<meta name="description" content="【VJ SHOWQU 公式サイト】東京を中心に活動するVJ。Blenderを使用した自作３D素材で、ハウスやハードミュージックなど多ジャンルのクラブイベントに対応。出演・制作のご依頼はこちら。">
+<meta property="og:title" content="SHOWQU VJ/3D Creator">
+<meta property="og:description" content="VJのブッキングや３Dの依頼はこちらから！">
+<meta property="og:image" content="https://static.wixstatic.com/media/4520b3_d746bc47f2c84ae8aebc4c474cf4c288~mv2.png/v1/fill/w_1920,h_1080,al_c/4520b3_d746bc47f2c84ae8aebc4c474cf4c288~mv2.png">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Montserrat:wght@900&family=Noto+Sans+JP:wght@300;400;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#000;color:#fff;font-family:"Jost","Noto Sans JP","Hiragino Sans",Meiryo,sans-serif;font-weight:400;line-height:1.5}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+
+/* ヘッダー */
+.top{display:flex;justify-content:space-between;align-items:center;padding:26px 5%;flex-wrap:wrap;gap:12px}
+.top .left{display:flex;gap:34px;flex-wrap:wrap;font-size:22px;letter-spacing:.12em}
+.top .left a{text-decoration:none}
+.top nav{display:flex;gap:90px}
+.top nav a{text-decoration:none;font-size:25px}
+.top a:hover{text-decoration:underline}
+
+/* ヒーロー */
+.hero{text-align:center;padding-top:6px}
+.kana{margin:0;font-family:"Noto Sans JP",sans-serif;font-weight:400;font-size:24px;letter-spacing:.5em;padding-left:.5em;line-height:1.2}
+h1{margin:6px 0 0;font-family:"Montserrat",sans-serif;font-weight:900;font-size:clamp(52px,7.6vw,96px);letter-spacing:.25em;padding-left:.25em;line-height:1.15}
+.role{margin:4px 0 24px;font-family:"Share Tech Mono","Noto Sans JP",monospace;color:#ddd;font-size:clamp(17px,1.9vw,25px);letter-spacing:.3em;padding-left:.3em}
+.logo{width:272px;height:272px;margin:0 auto;border-radius:12px}
+
+/* ギャラリー */
+.gallery{padding:0 5.6%;margin-top:48px;display:grid;grid-template-columns:1.5fr 1fr 1fr;grid-template-rows:270px 270px}
+.g{overflow:hidden;background:#000}
+.g img{width:100%;height:100%;object-fit:cover}
+.g1{grid-row:1 / span 2}
+.g3{background:#f00;position:relative}
+.g3::after{content:"";position:absolute;left:14px;top:70px;width:40px;height:40px;border:3px solid #f5e100;border-radius:50%}
+.g5{background:#ddd}
+
+/* セクション共通 */
+section{margin:0 44px}
+.line{height:1px;margin-top:40px}
+h2{margin:0;padding:8px 0 0 64px;font-weight:400;font-size:clamp(44px,5vw,60px);line-height:1.2}
+.col{width:min(950px,90%);margin:0 auto}
+.sec-sched .line{background:#e00}
+.sec-about .line{background:#2b5be0}
+.sec-contact .line{background:#4c0}
+.sec-history .line{background:#d4b400}
+
+/* Schedule */
+.sec-sched{margin-top:40px}
+.event{display:grid;grid-template-columns:1fr 1fr auto 1fr;align-items:center;width:min(980px,94%);margin:12px auto 0;text-decoration:none;color:#fff;border-bottom:2px solid transparent;background:#000;transition:background .2s}
+.event:hover{background:linear-gradient(90deg,#666,#6f9bdc);border-bottom-color:#3b6fd6}
+.event .date{grid-column:1;align-self:start;font-size:44px;color:#6f9bff;line-height:1.1}
+.event .name{grid-column:2;font-size:32px;text-align:center}
+.event img{grid-column:3;width:100px;margin:4px 0}
+.sec-sched .pad{height:320px}
+
+/* About */
+.sec-about{margin-top:0}
+.lead{margin:38px 0 40px;text-align:center;font-family:"Noto Sans JP",sans-serif;font-weight:700;font-size:clamp(28px,3vw,50px);line-height:1.4}
+.fhd{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.fhd .logo-fhd{width:376px}
+.chev{display:flex;flex:none}
+.chev svg{width:56px;height:64px;margin-right:-12px}
+.fhd .video{width:398px;height:235px;background:#222;flex:none}
+h3{margin:48px 0 4px;font-family:"Noto Sans JP",sans-serif;font-weight:700;font-size:31px;line-height:1.3}
+.txt{font-size:26px;line-height:1.45;margin:0}
+.txt .sub{font-size:26px}
+.txt p{margin:0}
+.gig-title{font-size:30px;margin:18px 0 0}
+.two{display:grid;grid-template-columns:1fr 420px;gap:30px}
+.yt{width:420px;height:230px;background:#111;align-self:start;margin-top:22px}
+.red{color:#e21}
+.deck-note{text-align:center;font-size:29px;margin:40px 0 0;letter-spacing:.03em}
+.hearts{display:flex;justify-content:center;gap:48px;margin-top:2px}
+.hearts svg{width:76px;height:62px}
+.deck{width:522px;height:321px;margin:24px auto 44px;background:#3d92ff;max-width:100%}
+
+/* Contact */
+.sec-contact .col{width:min(840px,90%)}
+.big{font-size:clamp(36px,4vw,60px);line-height:1.4;margin:38px 0 0;font-weight:400}
+.note{font-size:26px;margin:0 0 40px}
+.cbox{display:flex;gap:140px;flex-wrap:wrap}
+.cbox a{background:#fff;color:#000;border-radius:8px;padding:12px 18px;height:44px;letter-spacing:.12em;text-decoration:none;font-size:22px;line-height:1;display:flex;align-items:center}
+form{width:540px;max-width:100%;margin:60px auto 44px;border:1px solid #fff;padding:22px 24px 26px;font-family:Arial,Helvetica,sans-serif}
+label{display:block;font-size:14px;margin-bottom:6px}
+input,textarea{display:block;width:100%;border:0;background:#fff;color:#000;font:inherit;font-size:16px;padding:8px;border-radius:0;margin-bottom:22px}
+input{height:36px}
+textarea{height:90px;resize:vertical}
+button{display:block;margin:6px auto 0;width:147px;height:43px;background:#000;color:#fff;border:1px solid #e00;border-radius:22px;font:inherit;font-size:15px;cursor:pointer}
+button:hover{background:#e00}
+
+/* History */
+.hist{list-style:none;margin:20px 0 0;padding:0}
+.hist li{position:relative;padding:8px 0 8px 40px;font-size:29px;font-weight:300;line-height:1.4}
+.hist li::before{content:"•";position:absolute;left:0;color:#aaa;font-size:16px;top:16px}
+.hist .d{color:#bbb}
+.tweet{width:350px;margin:14px 0 6px 250px}
+.hist .col{width:min(950px,90%)}
+
+footer{text-align:center;padding:70px 20px 30px}
+footer img.name{width:249px;margin:0 auto 14px}
+footer p{margin:0 0 10px}
+footer nav{display:flex;justify-content:center;gap:28px;flex-wrap:wrap}
+footer nav a{text-decoration:none}
+.rainbow{width:100%}
+:focus-visible{outline:2px solid #fff;outline-offset:3px}
+
+@media (max-width:900px){
+  .top nav{gap:28px}.top nav a{font-size:20px}.top .left{font-size:16px;gap:16px}
+  .gallery{grid-template-columns:1fr 1fr;grid-template-rows:none;padding:0 4%}
+  .g1{grid-column:1 / span 2;grid-row:auto;height:300px}
+  .g2,.g3,.g4,.g5{height:180px}
+  section{margin:0 16px}h2{padding-left:8px}
+  .two{grid-template-columns:1fr}.yt{width:100%;height:auto;aspect-ratio:16/9}
+  .event{grid-template-columns:1fr;text-align:left;gap:6px}.event .name{text-align:left}
+  .cbox{gap:12px}.txt,.txt .sub{font-size:20px}h3{font-size:24px}.hist li{font-size:20px}.tweet{margin-left:40px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="left">
+    <a href="https://x.com/SHOWQUVJ">Twitter/X : @SHOWQUVJ</a>
+    <a href="mailto:showqu2025@gmail.com">Mail: showqu2025@gmail.com</a>
+  </div>
+  <nav aria-label="メインメニュー">
+    <a href="#schedule">Schedule</a>
+    <a href="#about">About me</a>
+    <a href="#history">History</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <p class="kana">ショック</p>
+  <h1>SHOWQU</h1>
+  <p class="role">VJ/3D Creator</p>
+  <img class="logo" src="https://static.wixstatic.com/media/4520b3_adfb00bd88144534b6203c4d073ab996~mv2.png/v1/fill/w_280,h_280,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/SHOWQUseihoukeiLogofinal.png" alt="SHOWQUの公式ロゴ" width="272" height="272">
+</div>
+
+<!-- ギャラリー（5枚）。g1以外は画像URL未取得のため空枠です。
+     例: <div class="g g2"><img src="画像URL" alt=""></div> の中身を差し替えてください。
+     g2=ガラス質の3Dオブジェ / g3=赤い枠(元は埋め込み) / g4=ワイヤーフレームの街 / g5=カラフルな幾何学模様 -->
+<div class="gallery">
+  <div class="g g1"><img src="https://static.wixstatic.com/media/4520b3_65f987d7b9fb47eb95adb8565563bc23~mv2.jpg/v1/fill/w_724,h_544,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/4520b3_65f987d7b9fb47eb95adb8565563bc23~mv2.jpg" alt="SHOWQU"></div>
+  <div class="g g2"></div>
+  <div class="g g3"></div>
+  <div class="g g4"></div>
+  <div class="g g5"></div>
+</div>
+
+<section id="schedule" class="sec-sched">
+  <div class="line"></div>
+  <h2>Schedule</h2>
+  <a class="event" href="https://x.com/MOGRAstaff/status/2094742368696299553">
+    <span class="date">2026.09.30 day</span>
+    <span class="name">MOGRA HOUSE LAB.</span>
+    <img src="https://static.wixstatic.com/media/4520b3_d1ad01f0eb1944c6b6b4a4f4c277966d~mv2.png/v1/crop/x_448,y_0,w_878,h_1207/fill/w_100,h_136,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/image.png" alt="MOGRA HOUSE LAB. フライヤー" width="100" height="136">
+  </a>
+  <div class="pad"></div>
+</section>
+
+<section id="about" class="sec-about">
+  <div class="line"></div>
+  <h2>About me</h2>
+  <div class="col">
+    <p class="lead">専用映像で、イベントを盛り上げるVJ</p>
+
+    <div class="fhd">
+      <img class="logo-fhd" src="https://static.wixstatic.com/media/4520b3_852864e09e0a42aa878752961bc0fae0~mv2.png/v1/fill/w_376,h_239,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/FHD_HEADERweb_002-700x445.png" alt="イベントFHDのイベントロゴ" width="376" height="239">
+      <div class="chev" aria-hidden="true">
+        <svg viewBox="0 0 56 64" fill="none" stroke-width="4" stroke-linejoin="round"><polygon points="4,4 22,4 50,32 22,60 4,60 32,32" stroke="#d81f1f"/></svg>
+        <svg viewBox="0 0 56 64" fill="none" stroke-width="4" stroke-linejoin="round"><polygon points="4,4 22,4 50,32 22,60 4,60 32,32" stroke="#2b5be0"/></svg>
+        <svg viewBox="0 0 56 64" fill="none" stroke-width="4" stroke-linejoin="round"><polygon points="4,4 22,4 50,32 22,60 4,60 32,32" stroke="#f0d000"/></svg>
+      </div>
+      <!-- FHDの映像（元サイトでは動画）。埋め込みや画像を入れる場合はここ -->
+      <div class="video"></div>
+    </div>
+
+    <h3>得意ジャンル</h3>
+    <div class="txt">
+      <p>・UK Garage</p>
+      <p>・House</p>
+      <p>・Bass系全般</p>
+      <p>その他ジャンルももちろん対応可です</p>
+    </div>
+
+    <h3>主な実績</h3>
+    <div class="two">
+      <div class="txt">
+        <p class="gig-title">Circus Tokyo： Coop Recordsイベント</p>
+        <p>・ATRIP</p><p>・ATURA</p><p>・HEAVEN’S GATE CREW</p><p>... and more</p>
+      </div>
+      <!-- YouTube埋め込み（元サイト：Atura | LIVE at Circus Tokyo x Coop Records）。
+           <iframe class="yt" src="https://www.youtube.com/embed/動画ID" allowfullscreen></iframe> に差し替え -->
+      <div class="yt"></div>
+    </div>
+    <div class="txt">
+      <p class="gig-title" style="margin-top:34px">秋葉原MOGRA： First Hyper Drop!</p>
+      <p>・DJ Shimamura</p><p>・DJ Noriken</p><p>... and more</p>
+      <p class="gig-title" style="margin-top:34px">Public Public：GOLD DISC After Party,EMOTION</p>
+      <p>・KOTONOHOUSE</p><p>・前澤</p><p>・NUU$HI</p><p>... and more</p>
+    </div>
+
+    <h3>限定ブッキング特典</h3>
+    <div class="txt"><p>現在、出演オファーをいただいたイベントのフライヤーやDJロゴの3D化制作を<span class="red">無料</span>で承ります。</p></div>
+
+    <h3>出演料</h3>
+    <div class="txt"><p>ご予算やイベント規模に応じて柔軟に対応いたします。まずはお気軽に以下のフォームやDM等からお問い合わせください！</p></div>
+  </div>
+
+  <p class="deck-note">ぜひ自作したローポリDJ Deckをいじり回してみてください</p>
+  <div class="hearts" aria-hidden="true">
+    <svg viewBox="0 0 76 62" fill="none" stroke-width="4" stroke-linejoin="round"><polygon points="4,20 22,4 38,18 54,4 72,20 38,56" stroke="#d81f1f"/></svg>
+    <svg viewBox="0 0 76 62" fill="none" stroke-width="4" stroke-linejoin="round"><polygon points="4,20 22,4 38,18 54,4 72,20 38,56" stroke="#2b5be0"/></svg>
+    <svg viewBox="0 0 76 62" fill="none" stroke-width="4" stroke-linejoin="round"><polygon points="4,20 22,4 38,18 54,4 72,20 38,56" stroke="#f0d000"/></svg>
+  </div>
+  <!-- 3D DJ Deck（元サイトは埋め込み）。iframeのURLを入れる場合は下の枠を差し替え -->
+  <div class="deck"></div>
+</section>
+
+<section id="contact" class="sec-contact">
+  <div class="line"></div>
+  <h2>Contact</h2>
+  <div class="col">
+    <p class="big">VJ出演・<br>3D制作のご依頼はこちら。</p>
+    <p class="note">イベント名、日程、会場、希望出演料等の内容などをご記入ください。</p>
+    <div class="cbox">
+      <a href="https://x.com/SHOWQUVJ">Twitter/X : @SHOWQUVJ</a>
+      <a href="mailto:showqu2025@gmail.com">Mail: showqu2025@gmail.com</a>
+    </div>
+  </div>
+  <form id="contact-form">
+    <label for="f-name">Name *</label>
+    <input id="f-name" type="text" name="name" required>
+    <label for="f-mail">Mail Address *</label>
+    <input id="f-mail" type="email" name="email" required>
+    <label for="f-msg">Message *</label>
+    <textarea id="f-msg" name="message" required></textarea>
+    <button type="submit">Send</button>
+  </form>
+</section>
+
+<section id="history" class="sec-history">
+  <div class="line"></div>
+  <h2>History</h2>
+  <div class="col">
+    <ul class="hist">
+      <!-- 元サイトでは各項目の下にXの埋め込みがあります（8/22はGOLD DISCの投稿）。投稿URLがあれば
+           <blockquote class="twitter-tweet"><a href="投稿URL"></a></blockquote> を入れてください -->
+      <li><span class="d">8/22</span> EMOTION @ PUBLIC PUBLIC</li>
+      <li><span class="d">8/15</span> Cybertokyo After Party @ Public Public</li>
+      <li><span class="d">8/15</span> NEO VELOCITY VOL3 @IV AKIHABARA</li>
+      <li><span class="d">8/14</span> Zero to Hero @ Public Public</li>
+      <li><span class="d">8/8</span> SHOUT@ IV AKIHABARA</li>
+      <li><span class="d">8/7</span> COOP RECS SHOWCASE @ CIRCUS TOKYO</li>
+      <li><span class="d">7/18</span> GOLD DISC After Party @ Public Public</li>
+      <li><span class="d">7/12</span> Party行為 @ Public Public</li>
+      <li><span class="d">6/21</span> play in stereo "FARAWAY" Teaser Movie VJ @ Public Public</li>
+      <li><span class="d">6/5</span> ATRIP JAPAN TOUR Tokyo @ Circus Tokyo</li>
+      <li><span class="d">6/5</span> JOX TOKYO POP-UP SHOW @ Public Public</li>
+      <li><span class="d">5/31</span> Public Public Event @ Public Public</li>
+      <li><span class="d">5/22</span> ATURA Tokyo 2026 @ Circus Tokyo</li>
+      <li><span class="d">2/8</span> FHD @ 秋葉原MOGRA
+        <blockquote class="twitter-tweet"><a href="https://x.com/FirstHyperDrop/status/2019956395404296555"></a></blockquote>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <p><a href="https://x.com/SHOWQUVJ">Twitter/X : @SHOWQUVJ</a></p>
+  <img class="name" src="https://static.wixstatic.com/media/4520b3_f16dca9700824a5aacd1d50a3ac1c2c3~mv2.png/v1/crop/x_0,y_550,w_3840,h_994/fill/w_249,h_60,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/showqu3dlogosen3.png" alt="SHOWQUの公式ネームドロゴ" width="249" height="60">
+  <p>Mail:<a href="mailto:showqu2025@gmail.com">showqu2025@gmail.com</a></p>
+  <nav><a href="#schedule">Schedule</a><a href="#about">About me</a><a href="#history">History</a><a href="#contact">Contact</a></nav>
+</footer>
+<img class="rainbow" src="https://static.wixstatic.com/media/4520b3_0dce58606b8d471992fd79352a74b694~mv2.png/v1/fill/w_1898,h_300,al_c,q_90,enc_avif,quality_auto/rainbowgrad300.png" alt="">
+
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<script>
+document.getElementById('contact-form').addEventListener('submit',function(e){
+  e.preventDefault();var f=e.target;
+  var s='VJ出演・3D制作のご依頼（'+f.name.value+'）';
+  var b='お名前: '+f.name.value+'\nメール: '+f.email.value+'\n\n'+f.message.value;
+  location.href='mailto:showqu2025@gmail.com?subject='+encodeURIComponent(s)+'&body='+encodeURIComponent(b);
+});
+</script>
+</body>
+</html>
